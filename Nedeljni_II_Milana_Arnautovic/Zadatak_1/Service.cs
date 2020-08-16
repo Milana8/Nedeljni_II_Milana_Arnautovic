@@ -101,5 +101,120 @@ namespace Zadatak_1
                 return false;
             }
         }
+
+        public bool IsUser(string username)
+        {
+            try
+            {
+                using (Nedeljni_IIEntities context = new Nedeljni_IIEntities())
+                {
+                    vwAdministrator admin = (from e in context.vwAdministrators where e.Username == username select e).First();
+
+                    if (admin == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
+
+        public vwAdministrator FindAdmin(string username)
+        {
+            try
+            {
+                using (Nedeljni_IIEntities context = new Nedeljni_IIEntities())
+                {
+                    vwAdministrator admin = (from e in context.vwAdministrators where e.Username == username select e).First();
+                    return admin;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public List<tblClinic> GetAllClinics()
+        {
+            try
+            {
+                using (Nedeljni_IIEntities context = new Nedeljni_IIEntities())
+                {
+                    List<tblClinic> list = new List<tblClinic>();
+                    list = (from x in context.tblClinics select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public void AddClinic(tblClinic clinicToAdd)
+        {
+            try
+            {
+                using (Nedeljni_IIEntities context = new Nedeljni_IIEntities())
+                {
+                    tblClinic clinic = new tblClinic
+                    {
+                        ClinicName = clinicToAdd.ClinicName,
+                        DateConstruction = clinicToAdd.DateConstruction,
+                        ClinicOwner = clinicToAdd.ClinicOwner,
+                        Adress = clinicToAdd.Adress,
+                        FloorNumber = clinicToAdd.FloorNumber,
+                        NumberRoomsPerFloor = clinicToAdd.NumberRoomsPerFloor,
+                        Balcony = clinicToAdd.Balcony,
+                        Garden=clinicToAdd.Garden,
+                        AmbulancesParking= clinicToAdd.AmbulancesParking,
+                        InvalidParking = clinicToAdd.InvalidParking,
+
+                                                                                                                                  };
+                    context.tblClinics.Add(clinic);
+                    context.SaveChanges();
+                    clinicToAdd.ClinicID = clinic.ClinicID;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+            }
+        }
+
+        public tblClinic EditClinic(tblClinic clinic)
+        {
+            try
+            {
+                using (Nedeljni_IIEntities context = new Nedeljni_IIEntities())
+                {
+                    tblClinic clinicToEdit = context.tblClinics.Where(x => x.ClinicID ==clinic.ClinicID).FirstOrDefault();
+                    clinicToEdit.ClinicOwner = clinic.ClinicOwner;
+                    clinicToEdit.AmbulancesParking = clinic.AmbulancesParking;
+                    clinicToEdit.InvalidParking = clinic.InvalidParking;
+                    context.SaveChanges();
+                    
+                    return clinic;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
     }
 }
+   

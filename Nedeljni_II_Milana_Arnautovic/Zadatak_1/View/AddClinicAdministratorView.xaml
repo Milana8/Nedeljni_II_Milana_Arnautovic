@@ -14,7 +14,7 @@
             <sys:String>O</sys:String>
             <sys:String>X</sys:String>
         </x:Array>
-        
+
     </Window.Resources>
     <Grid>
         <Label Content="FirstName:"
@@ -66,7 +66,7 @@
                Margin="50,227,0,0"
                Width="88" />
 
-        
+
         <TextBox HorizontalAlignment="Left"
                  Height="23"
                  TextWrapping="Wrap"
@@ -112,8 +112,8 @@
                  Width="120"
                  Margin="205,168,0,0" 
                 Text="{Binding Administrator.Citizenship, UpdateSourceTrigger=PropertyChanged}"/>
-                
-       
+
+
         <TextBox HorizontalAlignment="Left"
                  Height="23"
                  TextWrapping="Wrap"
@@ -129,15 +129,13 @@
                  Margin="205,230,0,0" 
                 Text="{Binding Administrator.Pasword, UpdateSourceTrigger=PropertyChanged}"/>
 
-      
+
         <Button Content="Save"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="89"
-                Margin="156,298,0,0"
-                Command="{Binding Save,UpdateSourceTrigger=PropertyChanged}" Height="34"/>
-        <Button Margin="300,298,404.6,88"
-                Command="{Binding Cancel,UpdateSourceTrigger=PropertyChanged}">Cancel</Button>
+                Command="{Binding Save,UpdateSourceTrigger=PropertyChanged}"  Margin="86,288,614.6,104" Background="#545d6a" Foreground="White" FontSize="12" IsDefault="True" />
+        <Button
+                 Name="btnClose" Content="Close"  
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"  Margin="298,288,402.6,104" Background="#545d6a" Foreground="White" FontSize="12" IsDefault="True"  />
+
     </Grid>
 </Window>
     

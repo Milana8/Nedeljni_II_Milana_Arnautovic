@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Zadatak_1.Command;
+using Zadatak_1.Model;
 using Zadatak_1.View;
 
 namespace Zadatak_1.ViewModel
@@ -15,6 +16,7 @@ namespace Zadatak_1.ViewModel
     class LoginViewModel : ViewModelBase
     {
         LoginView view;
+        Service service = new Service();
 
 
         #region Constructors
@@ -22,6 +24,8 @@ namespace Zadatak_1.ViewModel
         public LoginViewModel(LoginView view)
         {
             this.view = view;
+            administrator = new vwAdministrator();
+            AdminList = service.GetAllAdministratorView().ToList();
 
         }
         #endregion
@@ -42,6 +46,31 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("UserName");
             }
         }
+        private vwAdministrator administrator;
+        public vwAdministrator Administrator
+        {
+            get
+            {
+                return administrator;
+            }
+            set
+            {
+                administrator = value;
+                OnPropertyChanged("Administrator");
+            }
+        }
+        
+        private List<vwAdministrator> adminList;
+        public List<vwAdministrator> AdminList
+        {
+            get { return adminList; }
+            set
+            {
+                adminList = value;
+                OnPropertyChanged("AdminList");
+            }
+        }
+
 
         #endregion
 
@@ -87,6 +116,14 @@ namespace Zadatak_1.ViewModel
                     view.Close();
                     cl.ShowDialog();
                 }
+                else if (service.IsUser(UserName))
+                {
+                    Administrator = service.FindAdmin(UserName);
+                    AdministratorView adminView = new AdministratorView();
+                    view.Close();
+                    adminView.ShowDialog();
+                    
+                }
 
 
                 else
@@ -100,7 +137,7 @@ namespace Zadatak_1.ViewModel
                 MessageBox.Show(ex.ToString());
             }
         }
-
         #endregion
+
     }
 }
