@@ -74,7 +74,7 @@ namespace Zadatak_1.ViewModel
             };
         }
         /// <summary>
-        /// This method invokes a method for editing clinic.
+        /// 
         /// </summary>
         public void SaveExecute()
         {

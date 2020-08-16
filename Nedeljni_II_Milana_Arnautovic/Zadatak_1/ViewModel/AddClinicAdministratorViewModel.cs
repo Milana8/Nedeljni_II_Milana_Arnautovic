@@ -76,6 +76,9 @@ namespace Zadatak_1.ViewModel
         #endregion
 
         #region Commands
+        /// <summary>
+        /// command save
+        /// </summary>
         private ICommand save;
         public ICommand Save
         {
@@ -88,7 +91,9 @@ namespace Zadatak_1.ViewModel
                 return save;
             }
         }
-
+        /// <summary>
+        /// command close
+        /// </summary>
         private ICommand close;
         public ICommand Close
         {
@@ -105,7 +110,9 @@ namespace Zadatak_1.ViewModel
         #endregion
 
         #region Functions
-
+        /// <summary>
+        /// Save execute- how to save admin
+        /// </summary>
         private void SaveExecute()
         {
             var result = MessageBox.Show("Are you sure you want to create this admin?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -131,7 +138,10 @@ namespace Zadatak_1.ViewModel
             }
         }
 
-
+        /// <summary>
+        /// Can save
+        /// </summary>
+        /// <returns></returns>
         private bool CanSaveExecute()
         { 
 
@@ -144,12 +154,17 @@ namespace Zadatak_1.ViewModel
                     return false;
                 }
             }
-
+        /// <summary>
+        /// Close execute
+        /// </summary>
     private void CloseExecute()
         {
             view.Close();
         }
-
+        /// <summary>
+        /// Can close
+        /// </summary>
+        /// <returns></returns>
         private bool CanCloseExecute()
         {
             return true;

@@ -10,6 +10,10 @@ namespace Zadatak_1
 {
     class Service
     {
+        /// <summary>
+        /// Get All Users from db
+        /// </summary>
+        /// <returns></returns>
         public List<tblUser> GetAllUsers()
         {
             try
@@ -27,7 +31,10 @@ namespace Zadatak_1
                 return null;
             }
         }
-
+        /// <summary>
+        /// Get all admin from db
+        /// </summary>
+        /// <returns></returns>
         public List<tblAdministrator> GetAllAdministrators()
         {
             try
@@ -63,7 +70,11 @@ namespace Zadatak_1
                 return null;
             }
         }
-
+        /// <summary>
+        /// Method to add an administrator
+        /// </summary>
+        /// <param name="administrator"></param>
+        /// <returns></returns>
         public bool AddAdministrator(vwAdministrator administrator)
         {
             try
@@ -77,7 +88,7 @@ namespace Zadatak_1
                         DateOfBirth = administrator.DateOfBirth,
                         Citizenship = administrator.Citizenship,
                         FirstName = administrator.FirstName,
-                        Pasword = administrator.Pasword,
+                        Pasword = SecurePasswordHasher.Hash(administrator.Pasword),
                         Surname = administrator.Surname,
                         Username = administrator.Username
                     };
@@ -101,7 +112,11 @@ namespace Zadatak_1
                 return false;
             }
         }
-
+        /// <summary>
+        /// Checks if there is user with that username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public bool IsUser(string username)
         {
             try
@@ -126,7 +141,11 @@ namespace Zadatak_1
                 return false;
             }
         }
-
+        /// <summary>
+        /// Find the administrator by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public vwAdministrator FindAdmin(string username)
         {
             try
@@ -161,7 +180,10 @@ namespace Zadatak_1
                 return null;
             }
         }
-
+        /// <summary>
+        /// Method to add an clinic
+        /// </summary>
+        /// <param name="clinicToAdd"></param>
         public void AddClinic(tblClinic clinicToAdd)
         {
             try
@@ -193,7 +215,11 @@ namespace Zadatak_1
                 Debug.WriteLine("Exception" + ex.Message.ToString());
             }
         }
-
+        /// <summary>
+        /// Metod to edit an clinic
+        /// </summary>
+        /// <param name="clinic"></param>
+        /// <returns></returns>
         public tblClinic EditClinic(tblClinic clinic)
         {
             try

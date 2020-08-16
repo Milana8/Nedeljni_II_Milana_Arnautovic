@@ -78,6 +78,9 @@ namespace Zadatak_1.ViewModel
         }
         #endregion
         #region Commands
+        /// <summary>
+        /// Command save
+        /// </summary>
         private ICommand save;
         public ICommand Save
         {
@@ -90,7 +93,9 @@ namespace Zadatak_1.ViewModel
                 return save;
             }
         }
-
+        /// <summary>
+        /// Command close
+        /// </summary>
         private ICommand close;
         public ICommand Close
         {
