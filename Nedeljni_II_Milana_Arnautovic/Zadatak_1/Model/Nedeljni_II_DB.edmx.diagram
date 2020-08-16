@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6163fc69dbf2468cb1c7aac0a2ef1225" Name="Diagram1">
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblAdministrator" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblClinic" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblDoctor" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblMaintenance" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblManager" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblPatient" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.tblUser" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.vwAdministrator" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.vwDoctor" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.vwMaintenance" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Nedeljni_IIModel.vwManager" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblAdmini__UserI__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblDoctor__Manag__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblDoctor__UserI__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblMainte__UserI__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblManage__UserI__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Nedeljni_IIModel.FK__tblPatien__UserI__4CA06362" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

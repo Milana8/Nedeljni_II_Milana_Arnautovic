@@ -1,0 +1,54 @@
+﻿<Window x:Class="Zadatak_1.View.ClinicView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.View"
+        mc:Ignorable="d"
+        Title="ClinicView" Height="450" Width="1100">
+    <Grid Margin="0,0,-6.4,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Add clinic" Command="{Binding AddClinic}"
+                HorizontalAlignment="Left" Margin="0.2,1,0,0.2" Width="65" Grid.RowSpan="2" Grid.Column="1"/>
+
+        <Grid Grid.Column="1" Grid.Row="3">
+            <DataGrid ItemsSource="{Binding ClinicList,UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding Clinic, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="True" HeadersVisibility="Column"  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Clinic ID" Binding="{Binding ClinicID}"/>
+                    <DataGridTextColumn Header="Clinic name" Binding="{Binding ClinicName}"/>
+                    <DataGridTextColumn Header="DateConstruction" Binding="{Binding DateConstruction}"/>
+                    <DataGridTextColumn Header="ClinicOwner" Binding="{Binding ClinicOwner}"/>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding Adress}"/>
+                    <DataGridTextColumn Header="FloorNumber" Binding="{Binding FloorNumber}"/>
+                    <DataGridTextColumn Header="NumberRoomsPerFloor" Binding="{Binding NumberRoomsPerFloor}"/>
+                    <DataGridTextColumn Header="Balcony" Binding="{Binding Balcony}"/>
+                    <DataGridTextColumn Header="Garden" Binding="{Binding Garden}"/>
+                    <DataGridTextColumn Header="AmbulancesParking" Binding="{Binding AmbulancesParking}"/>
+                    <DataGridTextColumn Header="InvalidParking" Binding="{Binding InvalidParking}"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.EditClinic}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

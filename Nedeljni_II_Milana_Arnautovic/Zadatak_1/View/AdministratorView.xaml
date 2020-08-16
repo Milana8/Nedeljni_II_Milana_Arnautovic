@@ -1,0 +1,35 @@
+﻿<Window x:Class="Zadatak_1.View.AdministratorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.View"
+        mc:Ignorable="d"
+        Title="AdministratorView" Height="450" Width="800">
+    <Grid>
+        <Button
+                Content="Clinic"
+                Command="{Binding Clinic}" 
+               Margin="140,10,484.6,348" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True" />
+       <Button
+                Content="Doctor"
+                Command="{Binding Doctor}" 
+               Margin="140,330,484.6,28" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
+        <Button
+                Content="Patient"
+                Command="{Binding Patient}" 
+               Margin="140,250,484.6,108" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
+        <Button
+                Content="Manager"
+                Command="{Binding Manager}" 
+               Margin="140,172,484.6,186" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True" />
+        <Button
+                Content="Maintenance"
+                Command="{Binding Maintenance}" 
+               Margin="140,91,484.6,267" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
+
+
+
+
+    </Grid>
+</Window>
